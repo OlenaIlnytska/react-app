@@ -1,19 +1,20 @@
 import React, {Component} from "react";
-import classes from './Home.css'
+import Header from '../Header/Header'
+import MainPage from '../MainPage/MainPage'
+import './Home.css'
 
 class Home extends Component {
+
+    // inputHandler = (event) => {
+    //     console.log(event.target.value)
+    // }
+
     render() {
         return(
-            <div className={classes.Home + ' container'}>
-                <h2>Quick Search for Your <span className={classes.green}>Perfect Products</span></h2>
-                <p>Innovate &#183; List &#183; Connect</p>
-                <select>
-                    <option>Category</option>
-                    <option>-</option>
-                    <option>-</option>
-                </select>
-                <input type="text"/>
-                <button>Start Searching</button>
+
+            <div className={'Home'}>
+                <Header />
+                <MainPage />
             </div>
         )
     }

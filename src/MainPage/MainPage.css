@@ -1,0 +1,235 @@
+.container{
+    width: 1000px;
+    margin: 0;
+    text-align: center;
+}
+
+.MainPage{
+    font-family: Raleway;
+    margin-top: 150px;
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+}
+
+.green{
+    color: #0e7200;
+}
+
+.title h2{
+    font-size: 45px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    color: #484848;
+}
+
+.title p{
+    color: #484848;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+button{
+    text-transform: uppercase;
+    color: white;
+    font-size: 12px;
+    padding: 20px 20px;
+    background-color: #4dadbb;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+    height: 55px;
+    width: 170px;
+}
+
+/*button,select,option:hover, active, focus{*/
+/*    border: none;*/
+/*    outline:none;*/
+/*    border:transparent;*/
+/*}*/
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.select:after {
+    content: "▼";
+    /*padding: 0 8px;*/
+    font-size: 12px;
+    /*position: absolute;*/
+    right: 8px;
+    top: 4px;
+    z-index: 1;
+    text-align: center;
+    width: 10%;
+    height: 100%;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+input{
+    height: 55px;
+    width: 500px;
+    border: none;
+}
+
+.Input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.Select select{
+    height: 55px;
+    width: 150px;
+    border: none;
+    color: #484848;
+    text-align-last: center;
+    font-size: 12px;
+}
+
+.Select:hover, active{
+    border: none;
+}
+
+.smallContainer{
+    padding-top: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 20px;
+}
+
+.Container{
+    width: 200px;
+    text-align: center;
+    font-size: 14px;
+    /*margin-top: 250px;*/
+    height: 55px;
+    margin-left: 20px;
+    color: #0e7200;
+    background: #ffffff;
+    border: none;
+}
+
+.content{
+    padding-top: 13px;
+}
+
+.Part2{
+    height: 100vh;
+    background-color: #f7f7f7;
+    margin: 0;
+}
+
+
+.Part2 .title h2{
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    color: #000000;
+    padding-top: 40px;
+}
+
+.Part2 .title p{
+    color: #484848;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 5px;
+    padding-top: 10px;
+}
+
+.Row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.card{
+    width: 250px;
+    height: auto;
+    background-color: #ffffff;
+    border: none;
+    margin-right: 40px;
+    border-radius: 0;
+}
+
+.card img{
+    padding: 10px 10px 8px 10px;
+    width: 250px;
+    height: auto;
+}
+
+.card p{
+    color: #8b8b8b;
+    font-size: 16px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+
+.AllProducts{
+    text-align: center;
+    font-size: 16px;
+    color: #4dadbb;
+    text-decoration: underline;
+}
+
+.Part3{
+    background-color: #4dadbb;
+    height: 100vh;
+}
+
+.Part3 p{
+    font-size: 16px;
+    color: #ffffff;
+    padding-top: 20px;
+}
+
+.Part3 h2{
+    padding-top: 60px;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.Part4{
+    background-color: #323232;
+    height: 225px;
+}
+
+.Part5{
+    background-color: #272727;
+    height: 60px;
+}
+
+.Part5 p{
+    color: #ffffff;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.footerPhoto{
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.footerMenu{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-top: 30px;
+}
+
+.footerMenu .NavLink{
+    color: #ffffff;
+}
+
+.footerMenu .listElement:nth-child(3):after{
+    content: none;
+}
