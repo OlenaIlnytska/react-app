@@ -9,7 +9,9 @@ import trave from '../../src/img/trave.png'
 import netw from '../../src/img/netw.png'
 import camp from '../../src/img/camp.png'
 import footparr from '../../src/img/footparr.png'
+import arrow from '../../src/img/arrow.png'
 import {NavLink} from "react-router-dom";
+import Carousel from '../../src/Carousel/Carousel'
 
 class Home extends Component {
 
@@ -29,7 +31,9 @@ class Home extends Component {
                     <div className="Input">
                         <div className={'Select'}>
                             <select>
-                                <option>Category</option>
+                                <option>
+                                    Category
+                                </option>
                                 <option>-</option>
                                 <option>-</option>
                             </select>
@@ -40,25 +44,21 @@ class Home extends Component {
                         </div>
 
                         <div>
-                            <button>Start Searching</button>
+                            <button className={'Button'}>Start Searching</button>
                         </div>
                     </div>
 
                     <div className="smallContainer">
 
-                        <div className={'Container'}>
-                            <div className={'content'}>
+                        <button className={'Container'}>
                                 <img src={img1} alt=""/>
                                 All categories
-                            </div>
-                        </div>
+                        </button>
 
-                        <div className={'Container'}>
-                            <div className={'content'}>
+                        <button className={'Container'}>
                                 <img src={img2} alt=""/>
                                 How it works?
-                            </div>
-                        </div>
+                        </button>
 
                     </div>
                 </div>
@@ -109,10 +109,14 @@ class Home extends Component {
                 </div>
 
                 <div className={'Part3'}>
+
                     <div className={'title'}>
                         <h2>Testimonials</h2>
                         <p>What our customers told about us</p>
                     </div>
+
+                    <Carousel />
+
                 </div>
 
                 <div className={'Part4'}>

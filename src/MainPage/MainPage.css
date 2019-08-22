@@ -31,7 +31,7 @@
     margin-top: 5px;
 }
 
-button{
+.Button{
     text-transform: uppercase;
     color: white;
     font-size: 12px;
@@ -42,32 +42,26 @@ button{
     height: 55px;
     width: 170px;
 }
-
-/*button,select,option:hover, active, focus{*/
-/*    border: none;*/
-/*    outline:none;*/
-/*    border:transparent;*/
-/*}*/
-
 select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    position: relative;
+    outline: none;
 }
 
-.select:after {
-    content: "▼";
-    /*padding: 0 8px;*/
-    font-size: 12px;
-    /*position: absolute;*/
-    right: 8px;
-    top: 4px;
-    z-index: 1;
-    text-align: center;
-    width: 10%;
-    height: 100%;
-    pointer-events: none;
-    box-sizing: border-box;
+select::after {
+    position: absolute;
+    content: '';
+    background: url("../../src/img/arrow.png") no-repeat;
+    width: 5px;
+    height: 5px;
+    background-size: 5px 5px;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 input{
@@ -92,16 +86,24 @@ input{
     font-size: 12px;
 }
 
-.Select:hover, active{
-    border: none;
+.Select:focus{
+    outline: none;
+}
+
+input:focus{
+    outline: none;
+}
+
+button:focus{
+    outline: none;
 }
 
 .smallContainer{
-    padding-top: 250px;
+    padding-top: 200px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    padding-bottom: 20px;
+    padding-bottom: 60px;
 }
 
 .Container{
@@ -109,14 +111,14 @@ input{
     text-align: center;
     font-size: 14px;
     /*margin-top: 250px;*/
-    height: 55px;
+    height: 65px;
     margin-left: 20px;
     color: #0e7200;
     background: #ffffff;
     border: none;
 }
 
-.content{
+.Content{
     padding-top: 13px;
 }
 
@@ -199,18 +201,19 @@ input{
 
 .Part4{
     background-color: #323232;
-    height: 225px;
 }
 
 .Part5{
     background-color: #272727;
-    height: 60px;
+    /*height: 60px;*/
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 .Part5 p{
     color: #ffffff;
     text-align: center;
-    padding-top: 15px;
+    /*padding-top: 15px;*/
 }
 
 .footerPhoto{
@@ -223,7 +226,12 @@ input{
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    padding-top: 30px;
+    padding-top: 40px;
+}
+
+.footerMenu .listElement{
+    height: 0;
+    padding-bottom: 80px;
 }
 
 .footerMenu .NavLink{
