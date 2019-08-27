@@ -372,7 +372,11 @@ module.exports = function(webpackEnv) {
             {
               test: /\.scss$/,
               include: paths.appSrc,
-              loaders: ["style", "css", "sass", "scss"]
+                loaders: [
+                    require.resolve('style-loader'),
+                    require.resolve('css-loader'),
+                    require.resolve('sass-loader')
+                ]
             },
 
             // Process any JS outside of the app with Babel.
