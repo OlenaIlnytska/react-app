@@ -362,6 +362,19 @@ module.exports = function(webpackEnv) {
                 compact: isEnvProduction,
               },
             },
+
+            {
+              test: /\.sass$/,
+              include: paths.appSrc,
+              loaders: ["style", "css", "sass", "scss"]
+            },
+
+            {
+              test: /\.scss$/,
+              include: paths.appSrc,
+              loaders: ["style", "css", "sass", "scss"]
+            },
+
             // Process any JS outside of the app with Babel.
             // Unlike the application JS, we only compile the standard ES features.
             {

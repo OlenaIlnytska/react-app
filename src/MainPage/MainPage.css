@@ -42,7 +42,7 @@
     height: 55px;
     width: 170px;
 }
-select {
+select{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -50,19 +50,29 @@ select {
     outline: none;
 }
 
-select::after {
+option{
+    border: none;
+    outline: none;
+}
+
+.Select{
+    position: relative;
+}
+
+.Select::after {
     position: absolute;
     content: '';
     background: url("../../src/img/arrow.png") no-repeat;
-    width: 5px;
-    height: 5px;
-    background-size: 5px 5px;
+    width: 15px;
+    height: 10px;
+    background-size: 15px 10px;
     z-index: 2;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 50%;
+    right: 35px;
+    transform: translateY(-50%);
 }
+
+
 
 input{
     height: 55px;

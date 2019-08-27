@@ -1,9 +1,11 @@
 import React from "react";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './Carousel.css'
-import data from './data'
+// import './Carousel.css'
+import Swiper from 'react-id-swiper';
+import Card from '../Card/Card'
+import data from "../Card/data";
 
 class Carousel extends React.PureComponent {
 
@@ -16,87 +18,123 @@ class Carousel extends React.PureComponent {
         }
     }
 
-    nextProperty = () => {
-        const newIndex = this.state.card.id + 1
-        this.setState({
-            card: data.cards[newIndex]
-        })
-        if(this.state.card.id === this.state.cards.length){
-            this.setState({
-                card: this.state.cards[0]
-            })
-        }
-
-    }
-
-    prevProperty = () => {
-        const newIndex = this.state.card.id - 1
-        this.setState({
-            card: data.cards[newIndex]
-        })
-    }
-
     render() {
 
         const {card, cards} = this.state
 
-        return (
-
-            <div className={'container'}>
-
-                <button
-                    onClick={this.prevProperty}
-                    disabled={card.id === 0}
-                >
-                    Prev
-                </button>
-
-                <button
-                    onClick={this.nextProperty}
-                    disabled={card.id === data.cards.length-1}
-                >
-                    Next
-                </button>
-
-                {/*<Slider {...settings}>*/}
-                <div className={`cards-slider active-slide-${card.id}`}>
-                    <div className={'cards-slider-wrapper'} style={{
-                        'transform': `translateX(-${card.id*100/cards.length}%)`
-                    }}>
-
-                        {cards.map((card, index) => (
-                            <div className={'block'} id={`card-${index}`} key={index}>
-                                <div className={'content'}>
-                                    <img className={'image'} src={card.photo} alt='' />
-                                    <div className={'topContent'}>
-                                        <p>
-                                            {card.text}
-                                        </p>
-
-                                        <div>
-                                            <h3>{card.fullName}</h3>
-                                            <h4>{card.description}</h4>
-                                        </div>
-                                    </div>
-                                    {/*if(card.id === cards.length){*/}
-                                    {/*    index = 0*/}
-                                    {/*}*/}
-                                    {/*if(this.state.card.id === this.state.cards.length){*/}
-                                    {/*this.setState({*/}
-                                    {/*    card: this.state.cards[0]*/}
-                                    {/*})*/}
-                                </div>
-                            </div>
-                        ))}
-
+        const params = {
+            slidesPerView: 3,
+            // slidesPerGroup: 3,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            active: 'swiper-slide-duplicate-active',
+            next: 'swiper-slide-duplicate-next',
+            prev: 'swiper-slide-duplicate-prev',
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            }
+        }
+        console.log(data)
+        return(
+            <Swiper {...params}>
+                {cards.map((card, index) => (
+                    <div>
+                        <Card card={card}/>
                     </div>
-                </div>
-
-
-                {/*</Slider>*/}
-            </div>
-        );
+                ))}
+            </Swiper>
+        )
     }
+
+
+
+
+
+
+    // constructor(props) {
+    //     super(props);
+    //
+    //     this.state = {
+    //         card: data.cards[0],
+    //         cards: data.cards
+    //     }
+    // }
+    //
+    // nextProperty = () => {
+    //     const newIndex = this.state.card.id + 1
+    //     this.setState({
+    //         card: data.cards[newIndex]
+    //     })
+    //     if(this.state.card.id === this.state.cards.length){
+    //         this.setState({
+    //             card: this.state.cards[0]
+    //         })
+    //     }
+    //
+    // }
+    //
+    // prevProperty = () => {
+    //     const newIndex = this.state.card.id - 1
+    //     this.setState({
+    //         card: data.cards[newIndex]
+    //     })
+    // }
+    //
+    // render() {
+    //
+    //     const {card, cards} = this.state
+    //
+    //     return (
+    //
+    //         <div className={'container'}>
+    //
+    //             <button
+    //                 onClick={this.prevProperty}
+    //                 disabled={card.id === 0}
+    //             >
+    //                 Prev
+    //             </button>
+    //
+    //             <button
+    //                 onClick={this.nextProperty}
+    //                 disabled={card.id === data.cards.length-1}
+    //             >
+    //                 Next
+    //             </button>
+    //
+    //             {/*<Slider {...settings}>*/}
+    //             <div className={`cards-slider active-slide-${card.id}`}>
+    //                 <div className={'cards-slider-wrapper'} style={{
+    //                     'transform': `translateX(-${card.id*100/cards.length}%)`
+    //                 }}>
+    //
+    //                     {cards.map((card, index) => (
+    //                         <div className={'block'} id={`card-${index}`} key={index}>
+    //                             <div className={'content'}>
+    //                                 <img className={'image'} src={card.photo} alt='' />
+    //                                 <div className={'topContent'}>
+    //                                     <p>
+    //                                         {card.text}
+    //                                     </p>
+    //
+    //                                     <div>
+    //                                         <h3>{card.fullName}</h3>
+    //                                         <h4>{card.description}</h4>
+    //                                     </div>
+    //                                 </div>
+    //                             </div>
+    //                         </div>
+    //                     ))}
+    //
+    //                 </div>
+    //             </div>
+    //
+    //
+    //             {/*</Slider>*/}
+    //         </div>
+    //     );
+    // }
 
 
 
