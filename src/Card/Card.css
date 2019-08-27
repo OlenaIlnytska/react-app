@@ -97,27 +97,33 @@
     position: relative;
     top: -40px;
 }
-.block .swiper-slide-duplicate-prev {
+
+.swiper-slide-duplicate-prev {
     opacity: 0.5;
     z-index: -1;
     transform: scale(0.7);
     left: -250px;
 }
-.block .swiper-slide-next {
+
+.swiper-slide-next {
     opacity: 1;
 }
-.block .swiper-slide-active {
+
+.swiper-slide-active {
     opacity: 0.5;
     transform: scale(0.7);
     left: 250px;
 }
-.block .swiper-container {
+
+.swiper-container {
     /*width: 700px;*/
     color: #000;
     margin: auto;
     /*display: flex;*/
+    min-height: 600px;
 }
-.block .swiper-slide {
+
+.swiper-slide {
     width: 100%;
     height: 500px;
     text-align: center;

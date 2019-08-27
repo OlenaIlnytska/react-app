@@ -1,11 +1,13 @@
 import React from "react";
 // import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-// import './Carousel.css'
+import '../Card/Card.css';
 import Swiper from 'react-id-swiper';
 import Card from '../Card/Card'
 import data from "../Card/data";
+// scss
+import 'react-id-swiper/lib/styles/scss/swiper.scss';
+// css
+import 'react-id-swiper/lib/styles/css/swiper.css';
 
 class Carousel extends React.PureComponent {
 
@@ -19,8 +21,7 @@ class Carousel extends React.PureComponent {
     }
 
     render() {
-
-        const {card, cards} = this.state
+        const {card, cards} = this.state;
 
         const params = {
             slidesPerView: 3,
@@ -35,11 +36,11 @@ class Carousel extends React.PureComponent {
                 prevEl: '.swiper-button-prev'
             }
         }
-        console.log(data)
+
         return(
             <Swiper {...params}>
                 {cards.map((card, index) => (
-                    <div>
+                    <div key={index}>
                         <Card card={card}/>
                     </div>
                 ))}

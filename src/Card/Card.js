@@ -1,10 +1,9 @@
 import React from "react";
-import Slider from "react-slick";
-import './Card.css'
-import data from './data'
+import './Card.css';
 
 const Card = (props) => {
     return(
+
         <div className={'swiper-container'}>
             <div className={'swiper-slide'}>
                 <div className={'block'}>
