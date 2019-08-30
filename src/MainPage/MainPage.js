@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import classes from './MainPage.css'
-import img1 from '../../src/img/1.png'
-import img2 from '../../src/img/2.png'
+import img1 from '../../src/img/allcateg.png'
+import img2 from '../../src/img/fingerup.png'
 import hubstuf from '../../src/img/hubstuf.png'
 import jira from '../../src/img/jira.png'
 import slack from '../../src/img/slack.png'
@@ -12,6 +12,12 @@ import footparr from '../../src/img/footparr.png'
 import arrow from '../../src/img/arrow.png'
 import {NavLink} from "react-router-dom";
 import Carousel from '../../src/Carousel/Carousel'
+import Header from '../Header/Header'
+import Search from '../Search/Search'
+import Products from '../Products/Products'
+import Testimonials from '../Testimonials/Testimonials'
+import TopPart from "../Footer/TopPart/TopPart"
+import BottomPart from "../Footer/BottomPart/BottomPart"
 
 class Home extends Component {
 
@@ -19,132 +25,40 @@ class Home extends Component {
         console.log(event.target.value)
     }
 
+    state = {
+        token: ''
+    }
+
+    componentDidMount() {
+        fetch('https://ski-rent-api.herokuapp.com/api/user_token', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(
+            {auth: {
+                email: 'some_new_email@email.com',
+                    password: '12345678'
+                }})} )
+            .then(data => {
+                    this.setState({token: data.body.jwt})
+                console.log(data.body)
+            })
+            .catch(e => {
+                console.log(e)
+            })
+    }
+
     render() {
         return(
             <div className={'MainPage'}>
-                <div className={'Part1'}>
-                    <div className={'title'}>
-                        <h2>Quick Search for Your <span className={'green'}>Perfect Products</span></h2>
-                        <p>Innovate &#183; List &#183; Connect</p>
-                    </div>
 
-                    <div className="Input">
-                        <div className={'Select'}>
-                            <select>
-                                <option>
-                                    Category
-                                </option>
-                                <option>-</option>
-                                <option>-</option>
-                            </select>
-                        </div>
+                <Header/>
 
-                        <div>
-                            <input type="text" onChange={this.inputHandler}/>
-                        </div>
+                <Search />
 
-                        <div>
-                            <button className={'Button'}>Start Searching</button>
-                        </div>
-                    </div>
+                <Products />
 
-                    <div className="smallContainer">
+                <Testimonials />
 
-                        <button className={'Container'}>
-                                <img src={img1} alt=""/>
-                                All categories
-                        </button>
+                <TopPart />
 
-                        <button className={'Container'}>
-                                <img src={img2} alt=""/>
-                                How it works?
-                        </button>
-
-                    </div>
-                </div>
-
-
-
-                <div className={'Part2'}>
-                    <div className={'title'}>
-                        <h2>Most Popular Products</h2>
-                        <p>This is the list of products that are most interested in users</p>
-                    </div>
-
-                    <div className={'Row'}>
-                        <div className={'card'}>
-                            <img src={hubstuf} alt=""/>
-                            <p>Hubstaff Directory</p>
-                        </div>
-                        <div className={'card'}>
-                            <img src={jira} alt=""/>
-                            <p>Jira 2017</p>
-                        </div>
-                        <div className={'card'}>
-                            <img src={slack} alt=""/>
-                            <p>Slack Pro</p>
-                        </div>
-                    </div>
-
-
-                    <div className={'Row'}>
-                        <div className={'card'}>
-                            <img src={trave} alt=""/>
-                            <p>TraveChat</p>
-                        </div>
-                        <div className={'card'}>
-                            <img src={netw} alt=""/>
-                            <p>Network</p>
-                        </div>
-                        <div className={'card'}>
-                            <img src={camp} alt=""/>
-                            <p>Time Camp</p>
-                        </div>
-                    </div>
-
-                    <div className={'AllProducts'}>
-                        <a href="">All products</a>
-                    </div>
-
-                </div>
-
-                <div className={'Part3'}>
-
-                    <div className={'title'}>
-                        <h2>Testimonials</h2>
-                        <p>What our customers told about us</p>
-                    </div>
-
-                    <Carousel />
-
-                </div>
-
-                <div className={'Part4'}>
-
-                    <div className={'footerPhoto'}>
-                        <img src={footparr} alt=""/>
-                    </div>
-
-                    <div className={'footerMenu'}>
-                        <div className={'listElement'}>
-                            <NavLink className={'NavLink'} to="/">About us</NavLink>
-                        </div>
-                        <div className={'listElement'}>
-                            <NavLink className={'NavLink'} to="/aboutUs">Terms of service</NavLink>
-                        </div>
-                        <div className={'listElement'}>
-                            <NavLink className={'NavLink'} to="/logIn">Privacy policy</NavLink>
-                        </div>
-                        <div className={'listElement'}>
-                            <NavLink className={'NavLink'} to="/signUp">Contact us</NavLink>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div className={'Part5'}>
-                    <p>© 2018 Find Parrot</p>
-                </div>
+                <BottomPart />
 
             </div>
         )

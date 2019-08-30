@@ -1,0 +1,60 @@
+
+.BottomPart{
+    background-color: #272727;
+    /*height: 60px;*/
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.BottomPart p{
+    color: #ffffff;
+    text-align: center;
+    /*padding-top: 15px;*/
+}
+
+@media screen and (min-width: 1966px) {
+    .BottomPart p{
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 1965px) {
+    .BottomPart p{
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .BottomPart p{
+        font-size: 18px;
+    }
+}
+
+/*@media screen and (max-width: 1298px) {*/
+/*    */
+/*}*/
+
+@media screen and (max-width: 1024px) {
+    .BottomPart p{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .BottomPart p{
+        font-size: 14px;
+    }
+
+}
+
+@media screen and (max-width: 560px) {
+    .BottomPart p{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 358px) {
+    .BottomPart p{
+        font-size: 10px;
+    }
+}

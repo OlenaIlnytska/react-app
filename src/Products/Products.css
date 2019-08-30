@@ -1,0 +1,285 @@
+
+
+.Products{
+    height: 100vh;
+    background-color: #f7f7f7;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+.Products .title h2{
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    /*color: #000000;*/
+    padding-top: 20px;
+}
+
+.Products .title p{
+    color: #484848;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 5px;
+    /*padding-top: 10px;*/
+}
+
+.grid-container{
+    display: grid;
+    grid-gap: 30px 60px;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    /*justify-content: space-evenly;*/
+    margin: 0 350px;
+}
+
+/*.Row{*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    margin-bottom: 30px;*/
+/*}*/
+
+.card{
+    width: 100%;
+    max-height: 500px;
+    background-color: #ffffff;
+    border: none;
+    /*margin-right: 40px;*/
+    border-radius: 0;
+}
+
+.card img{
+    padding: 10px 10px 8px 10px;
+    width: 100%;
+    height: auto;
+}
+
+.card p{
+    color: #8b8b8b;
+    font-size: 16px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+
+.AllProducts{
+    text-align: center;
+    font-size: 16px;
+    color: #4dadbb;
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 1966px) {
+    .grid-container {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: center;
+        margin: 20px auto;
+    }
+
+    .Products {
+        height: 100vh;
+    }
+
+    .card {
+        width: 25rem;
+        height: 25rem;
+    }
+
+    .Products .title h2 {
+        font-size: 30px;
+    }
+
+    .Products .title p, .card p, .AllProducts {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 1965px) {
+    .grid-container {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: center;
+        margin: 20px auto;
+    }
+
+    .Products {
+        height: 100vh;
+    }
+
+    .card {
+        width: 23rem;
+        height: 23rem;
+    }
+
+    .Products .title h2 {
+        font-size: 30px;
+    }
+
+    .Products .title p, .card p, .AllProducts {
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width: 1500px) {
+    .grid-container {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: center;
+        margin: 20px auto;
+    }
+
+    .Products {
+        height: 100vh;
+    }
+
+    .card {
+        width: 15rem;
+        height: 15rem;
+    }
+
+    .Products .title h2 {
+        font-size: 30px;
+    }
+
+    .Products .title p, .card p, .AllProducts {
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width: 1298px) {
+    .grid-container {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: center;
+        margin: 20px auto;
+    }
+
+    .Products {
+        height: 100vh;
+    }
+
+    .card {
+        width: 14rem;
+        height: 14rem;
+    }
+
+    .Products .title h2 {
+        font-size: 30px;
+    }
+
+    .Products .title p, .card p, .AllProducts {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .grid-container {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: center;
+        margin: 20px auto;
+    }
+
+    .Products {
+        height: 100vh;
+    }
+
+    .card {
+        width: 13rem;
+        height: 13rem;
+    }
+
+    .Products .title h2 {
+        font-size: 26px;
+    }
+
+    .Products .title p, .card p, .AllProducts {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+        margin: 20px auto;
+    }
+
+    .Products {
+        height: 100%;
+    }
+
+    .card {
+        width: 16rem;
+        height: 16rem;
+    }
+
+    .Products .title h2 {
+        font-size: 20px;
+    }
+
+    .Products .title p, .card p, .AllProducts {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .grid-container {
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        margin: 20px auto;
+    }
+
+    .Products {
+        height: 100%;
+    }
+
+    .card {
+        width: 16rem;
+        height: 16rem;
+    }
+
+    .Products .title h2 {
+        font-size: 16px;
+    }
+
+    .Products .title p, .card p, .AllProducts {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 358px) {
+    .grid-container {
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        margin: 20px auto;
+    }
+
+    .Products {
+        height: 100%;
+    }
+
+    .card {
+        width: 12rem;
+        height: 12rem;
+    }
+
+    .Products .title h2 {
+        font-size: 16px;
+    }
+
+    .Products .title p, .card p, .AllProducts {
+        font-size: 9px;
+    }
+}
+
+

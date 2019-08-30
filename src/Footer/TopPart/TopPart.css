@@ -1,0 +1,120 @@
+.TopPart{
+    background-color: #323232;
+}
+
+.ListElement{
+    list-style: none;
+    padding-right: 40px;
+    /*height: 100px;*/
+    text-align: center;
+}
+
+.ListElement:last-child{
+    padding-right: 0px;
+}
+
+.NavLink{
+    font-family: Raleway;
+    color: #000000;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.NavLink:hover,active{
+    text-decoration: none;
+    color: #000000;
+}
+
+.footerPhoto{
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.footerMenu{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-top: 40px;
+}
+
+.footerMenu .ListElement{
+    height: 0;
+    padding-bottom: 80px;
+}
+
+.footerMenu .NavLink{
+    color: #ffffff;
+}
+
+.footerMenu .ListElement:nth-child(3):after{
+    content: none;
+}
+
+@media screen and (min-width: 1966px) {
+    .NavLink{
+        font-size: 24px;
+    }
+    .footerPhoto img{
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 1965px) {
+    .NavLink{
+        font-size: 18px;
+    }
+    .footerPhoto img{
+        width: 90px;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .NavLink{
+        font-size: 16px;
+    }
+}
+
+/*@media screen and (max-width: 1298px) {*/
+/*    */
+/*}*/
+
+@media screen and (max-width: 1024px) {
+    .NavLink{
+        font-size: 14px;
+    }
+    .footerPhoto img{
+        width: 80px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .NavLink{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .NavLink{
+        font-size: 10px;
+    }
+    .ListElement{
+        padding-right: 20px;
+    }
+    .footerPhoto img{
+        width: 70px;
+    }
+}
+
+@media screen and (max-width: 358px) {
+    .NavLink {
+        font-size: 8px;
+    }
+    .ListElement{
+        padding-right: 15px;
+    }
+    .footerPhoto img{
+        width: 60px;
+    }
+}

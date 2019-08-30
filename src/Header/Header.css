@@ -1,25 +1,30 @@
 
-.App{
+.Header{
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    background: #e5e6ea;
+    z-index: 2;
 }
 
-.logo{
-    margin-left: 150px;
-}
+/*.logo{*/
+/*    !*padding-left: 150px;*!*/
+/*}*/
 
 .list{
     padding: 0;
-    margin: 0 120px 0 0;
+    padding: 0 120px 0 0;
     display: flex;
     justify-content: flex-end;
 }
 
 .listElement{
     list-style: none;
-    margin-right: 45px;
-    height: 100px;
+    padding-right: 45px;
+    /*height: 100px;*/
     text-align: center;
 }
 
@@ -36,14 +41,89 @@
     color: #000000;
 }
 
-.listElement:nth-child(3)::after{
+.listElement{
+    position: relative;
+}
+
+.listElement:last-child{
+    padding-left: 40px;
+}
+
+.listElement:nth-child(3):after{
     /*border-right: 2px solid #ccc;*/
     /*padding-right: 60px;*/
-    content: '';
-    width: 0;
-    height: 45px;
-    background-color: #b5b6b9;
-    border: 1px solid #b5b6b9;
-    left: 10px;
-    margin-left: 30px;
+    position: absolute;
+    content: '|';
+    font-size: 70px;
+    width: 0px;
+    color: #b5b6b9;
+    /*height: 45px;*/
+    /*background-color: #b5b6b9;*/
+    /*border: 1px solid #b5b6b9;*/
+    /*left: 10px;*/
+    margin: 0 30px;
+    top: -45px;
+    /*padding-right: 30px;*/
+}
+
+@media screen and (min-width: 1966px) {
+    .logo{
+        padding-left: 250px;
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 1965px) {
+
+}
+
+@media screen and (max-width: 1500px) {
+    .logo{
+        padding-left: 90px;
+        height: 80px;
+    }
+}
+
+/*@media screen and (max-width: 1298px) {*/
+/*    */
+/*}*/
+
+@media screen and (max-width: 1024px) {
+    .logo{
+        padding-left: 90px;
+        height: 70px;
+    }
+    .listElement {
+        padding-right: 20px;
+    }
+    .list {
+        padding-right: 90px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .logo{
+        padding-left: 50px;
+        height: 60px;
+    }
+    .listElement {
+        padding-right: 15px;
+    }
+    .list {
+        padding-right: 50px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .logo{
+        padding-left: 40px;
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 358px) {
+    .logo{
+        padding-left: 30px;
+        height: 40px;
+    }
 }

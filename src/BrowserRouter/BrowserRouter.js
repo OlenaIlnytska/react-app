@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Home from "../Home/Home";
+import MainPage from "../MainPage/MainPage";
 import AboutUs from "../AboutUs/AboutUs";
 import LogIn from "../LogIn/LogIn";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
@@ -10,7 +10,7 @@ class browserRouter extends Component {
             <div>
                 <BrowserRouter>
                     <Switch>
-                        <Route path={'/'} exact component={Home} />
+                        <Route path={'/'} exact component={MainPage} />
                         <Route path={'/aboutUs'} component={AboutUs}/>
                         <Route path={'/logIn'} component={LogIn}/>
                         <Route path={'/signUp'}/>

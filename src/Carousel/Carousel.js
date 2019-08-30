@@ -4,10 +4,10 @@ import '../Card/Card.css';
 import Swiper from 'react-id-swiper';
 import Card from '../Card/Card'
 import data from "../Card/data";
-// scss
-import 'react-id-swiper/lib/styles/scss/swiper.scss';
-// css
-import 'react-id-swiper/lib/styles/css/swiper.css';
+// // scss
+// import 'react-id-swiper/lib/styles/scss/swiper.scss';
+// // css
+// import 'react-id-swiper/lib/styles/css/swiper.css';
 
 class Carousel extends React.PureComponent {
 

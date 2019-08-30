@@ -308,7 +308,7 @@ module.exports = function(webpackEnv) {
               options: {
                 formatter: require.resolve('react-dev-utils/eslintFormatter'),
                 eslintPath: require.resolve('eslint'),
-                
+
               },
               loader: require.resolve('eslint-loader'),
             },
@@ -341,7 +341,7 @@ module.exports = function(webpackEnv) {
                 customize: require.resolve(
                   'babel-preset-react-app/webpack-overrides'
                 ),
-                
+
                 plugins: [
                   [
                     require.resolve('babel-plugin-named-asset-import'),
@@ -363,21 +363,37 @@ module.exports = function(webpackEnv) {
               },
             },
 
-            {
-              test: /\.sass$/,
-              include: paths.appSrc,
-              loaders: ["style", "css", "sass", "scss"]
-            },
+            //
 
             {
-              test: /\.scss$/,
-              include: paths.appSrc,
-                loaders: [
-                    require.resolve('style-loader'),
-                    require.resolve('css-loader'),
-                    require.resolve('sass-loader')
-                ]
-            },
+              test: [/\.scss$/, /\.module\.scss$/],
+              use: [
+                require.resolve('style-loader'), {
+                  loader: require.resolve('css-loader'),
+                  options: {
+                    importLoaders: 1
+                  }
+                }, {
+                  loader: require.resolve('sass-loader')
+                }, {
+                  loader: require.resolve('postcss-loader'),
+                  options: {
+                    // Necessary for external CSS imports to work
+                    // https://github.com/facebookincubator/create-react-app/issues/2677
+                    ident: 'postcss',
+                    plugins: () => [
+                      require('postcss-flexbugs-fixes'),
+                      autoprefixer({
+                        browsers: [
+                          '>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9', // React doesn't support IE8 anyway
+                        ],
+                        flexbox: 'no-2009'
+                      })
+                    ]
+                  }
+                }
+              ]
+            }
 
             // Process any JS outside of the app with Babel.
             // Unlike the application JS, we only compile the standard ES features.
@@ -397,7 +413,7 @@ module.exports = function(webpackEnv) {
                 ],
                 cacheDirectory: true,
                 cacheCompression: isEnvProduction,
-                
+
                 // If an error happens in a package, it's possible to be
                 // because it was compiled. Thus, we don't want the browser
                 // debugger to show the original code. Instead, the code
