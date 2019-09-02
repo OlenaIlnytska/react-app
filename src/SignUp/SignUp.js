@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
-import axios from 'axios';
-import './Modal.css'
 import AxiosRequests from '../axios/AxiosRequests'
 
-class LogIn extends Component {
+class SignUp extends Component {
 
     myStorage = window.localStorage;
 
@@ -16,33 +14,24 @@ class LogIn extends Component {
     handleSubmit = event => {
         // this.myStorage.clear()
         event.preventDefault()
-        AxiosRequests.handleLogIn(this.state.email, this.state.password).then(data => {
+        AxiosRequests.handleSignUp(this.state.email, this.state.password).then(data => {
             this.myStorage.setItem('token', data.data.jwt)
-            console.log(localStorage.getItem('token'))
             this.props.closeModal()
-            // this.setState({token: data.data.jwt})
-            // console.log(data.data.jwt)
-        })
-
-        // this.setState({
-        //     modal: false
-        // })
-
+                // this.setState({token: data.data.jwt})
+                // console.log(data.data.jwt)
+            }
+        ).catch(e => {console.log(e)})
+        // this.setState({token: data.jwt})
     }
 
     // handleLogOut = () => {
     //     this.myStorage.removeItem('token');
     // }
 
-    // handleClose = () => {
-    //     const modal = document.getElementById("modal");
-    //     modal.style.display = "none";
-    // }
-
-// <form action="" className={"modal"} style={{'display': 'block'}}>
     render() {
         return(
-            <form action="" className={"modal"} style={ {'display': 'block'} }>
+            <form action="" className={'modal'} style={{display: 'block'}}>
+
                 <div className="modal-content">
 
                     <div className={'closeButton'}>
@@ -75,7 +64,7 @@ class LogIn extends Component {
                     </div>
 
                     {/*<div className={'token'}>*/}
-                    {/*    <span>Token: {this.myStorage.getItem('tokenLogIn') || '-'}</span>*/}
+                    {/*    <span>Token: {this.myStorage.getItem('tokenSignUp') || '-'}</span>*/}
                     {/*</div>*/}
                 </div>
             </form>
@@ -83,31 +72,4 @@ class LogIn extends Component {
     }
 }
 
-export default LogIn
-
-
-// handleLogIn = () => {
-//
-//     axios.post(this.state.api, JSON.stringify(
-//         {auth: {
-//                 email: this.state.email,
-//                 password: this.state.password
-//             }}),
-//         {headers: {'Content-Type': 'application/json'}} )
-//         .then(data => {
-//             //this.setState({token: data.body.jwt})
-//             this.myStorage.setItem('token', this.state.token);
-//             this.setState({token: data.data.jwt})
-//         })
-//         .catch(error => {
-//             console.log(error)
-//         })
-// }
-//
-// handleLogOut = () => {
-//     this.setState({
-//         token: ''
-//     })
-//
-//     this.myStorage.removeItem('token');
-// }
+export default SignUp

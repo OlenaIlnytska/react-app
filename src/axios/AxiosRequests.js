@@ -1,26 +1,31 @@
 import React, {Component} from 'react'
 import axios from 'axios';
 
+const apiLogIn = 'https://ski-rent-api.herokuapp.com/api/user_token'
+const apiSignUp = 'https://ski-rent-api.herokuapp.com/api/sign_up'
+
 class AxiosRequests extends Component {
 
-    handleLogIn = (email, password, api) => {
+    static handleLogIn = async (email, password) => {
 
-        axios.post(api, JSON.stringify(
+        const login = axios.post(apiLogIn, JSON.stringify(
             {auth: {
                     email: email,
                     password: password
                 }}),
             {headers: {'Content-Type': 'application/json'}} )
-            .then(data => {
-                this.myStorage.setItem('token', this.state.token);
-            })
-            .catch(error => {
-                console.log(error)
-            })
+        return await login
     }
 
-    handleLogOut = () => {
-        this.myStorage.removeItem('token');
+    static handleSignUp = async (email, password) => {
+
+        const signup = axios.post(apiSignUp, JSON.stringify(
+            {user: {
+                    email: email,
+                    password: password
+                }}),
+            {headers: {'Content-Type': 'application/json'}} )
+        return await signup
     }
 }
 

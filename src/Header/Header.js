@@ -3,11 +3,13 @@ import './Header.css';
 import {NavLink} from 'react-router-dom'
 import img from '../../src/logo.png'
 import Modal from '../Modal/Modal'
+import SignUp from "../SignUp/SignUp";
 
 class Header extends Component {
 
     state = {
-        modal: false
+        modal: false,
+        signUp: false
     }
 
     handleLogIn = () => {
@@ -24,8 +26,33 @@ class Header extends Component {
 
     handleShowModal = () => {
         return(
+            // this.state.modal && <Modal closeModal={this.handleCloseModal}/>
             this.state.modal && <Modal closeModal={this.handleCloseModal}/>
         )
+
+    }
+
+    handleLogOut = () => {
+        localStorage.removeItem('token')
+    }
+
+    handleSignUp = () => {
+        this.setState({
+            signUp: true
+        })
+    }
+
+    handleShowSignUp = () => {
+        return(
+            // this.state.modal && <Modal closeModal={this.handleCloseModal}/>
+            this.state.signUp && <SignUp closeModal={this.handleCloseSignUp}/>
+        )
+    }
+
+    handleCloseSignUp = () => {
+        this.setState({
+            signUp: false
+        })
     }
 
     render() {
@@ -42,15 +69,29 @@ class Header extends Component {
                         <div className={'listElement'}>
                             <NavLink className={'NavLink'} to="/aboutUs">About us</NavLink>
                         </div>
-                        <div className={'listElement'}>
-                            <NavLink className={'NavLink'} onClick={this.handleLogIn}>Log in</NavLink>
-                        </div>
-                        <div className={'listElement'}>
-                            <NavLink className={'NavLink'} to="/signUp">Sign up</NavLink>
-                        </div>
+
+                        {localStorage.getItem('token') ?
+                            <div className={'listElement'}>
+                                <NavLink className={'NavLink'} onClick={this.handleLogOut}>Log out</NavLink>
+                            </div>
+                            :
+                            <div className={'listElement'}>
+                                <NavLink className={'NavLink'} onClick={this.handleLogIn}>Log in</NavLink>
+                            </div>
+                        }
+
+                        {localStorage.getItem('token') ?
+                            null
+                            :
+                            <div className={'listElement'}>
+                                <NavLink className={'NavLink'} onClick={this.handleSignUp}>Sign up</NavLink>
+                            </div>
+                        }
+
                         {this.handleShowModal()}
+                        {this.handleShowSignUp()}
+
                     </div>
-                    {/*to="/logIn"*/}
                 </div>
         )
     }

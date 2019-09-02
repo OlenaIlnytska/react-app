@@ -89,6 +89,7 @@ class LogIn extends Component {
                         <button onClick={this.handleLogIn}>LogIn</button>
                     </div>
                 }
+
                 <div>Token: {this.myStorage.getItem('token') || '-'}</div>
                 {/*{this.state.storage?<div>Token: {this.myStorage.getItem('token')}</div>:<div>Token: - </div>}*/}
             </div>
