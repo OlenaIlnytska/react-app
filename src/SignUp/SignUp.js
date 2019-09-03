@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import AxiosRequests from '../axios/AxiosRequests'
+import SignUpForm from '../../src/SignUpForm/SignUpForm'
 
 class SignUp extends Component {
 
@@ -10,6 +11,10 @@ class SignUp extends Component {
         password: '',
         token: ''
     }
+
+    // handleSubmit = (data) => {
+    //     console.log(data)
+    // }
 
     handleSubmit = event => {
         // this.myStorage.clear()
@@ -30,46 +35,10 @@ class SignUp extends Component {
 
     render() {
         return(
-            <form action="" className={'modal'} style={{display: 'block'}}>
-
-                <div className="modal-content">
-
-                    <div className={'closeButton'}>
-
-                    </div>
-
-                    <button className="close">&times;</button>
-
-                    <div className={'Email'}>
-                        <h1>Email</h1>
-                        <input type="text" onChange={(e) => this.setState({email: e.target.value})}/>
-                    </div>
-
-                    <div className={'Password'}>
-                        <h1>Password</h1>
-                        <input type="text" onChange={(e) => this.setState({password: e.target.value})}/>
-                    </div>
-
-                    {/*{this.myStorage.getItem('token')?*/}
-                    {/*    <div>*/}
-                    {/*        <button className={'Submit'} onClick={this.handleLogOut}>LogOut</button>*/}
-                    {/*    </div>*/}
-                    {/*    : <div>*/}
-                    {/*        <button className={'Submit'} onClick={this.handleSubmit}>Submit</button>*/}
-                    {/*    </div>*/}
-                    {/*}*/}
-
-                    <div>
-                        <button className={'Submit'} onClick={this.handleSubmit}>Submit</button>
-                    </div>
-
-                    {/*<div className={'token'}>*/}
-                    {/*    <span>Token: {this.myStorage.getItem('tokenSignUp') || '-'}</span>*/}
-                    {/*</div>*/}
-                </div>
-            </form>
+            <SignUpForm />
         )
     }
 }
 
 export default SignUp
+

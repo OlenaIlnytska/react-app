@@ -4,6 +4,8 @@ import {NavLink} from 'react-router-dom'
 import img from '../../src/logo.png'
 import Modal from '../Modal/Modal'
 import SignUp from "../SignUp/SignUp";
+import LogIn from "../LogIn/LogIn";
+import SignUpForm from "../SignUpForm/SignUpForm";
 
 class Header extends Component {
 

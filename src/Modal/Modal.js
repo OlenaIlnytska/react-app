@@ -61,22 +61,9 @@ class LogIn extends Component {
                         <input type="text" onChange={(e) => this.setState({password: e.target.value})}/>
                     </div>
 
-                    {/*{this.myStorage.getItem('token')?*/}
-                    {/*    <div>*/}
-                    {/*        <button className={'Submit'} onClick={this.handleLogOut}>LogOut</button>*/}
-                    {/*    </div>*/}
-                    {/*    : <div>*/}
-                    {/*        <button className={'Submit'} onClick={this.handleSubmit}>Submit</button>*/}
-                    {/*    </div>*/}
-                    {/*}*/}
-
                     <div>
                         <button className={'Submit'} onClick={this.handleSubmit}>Submit</button>
                     </div>
-
-                    {/*<div className={'token'}>*/}
-                    {/*    <span>Token: {this.myStorage.getItem('tokenLogIn') || '-'}</span>*/}
-                    {/*</div>*/}
                 </div>
             </form>
         )
