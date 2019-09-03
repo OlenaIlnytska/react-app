@@ -17,13 +17,12 @@ class SignUp extends Component {
     // }
 
     handleSubmit = event => {
-        // this.myStorage.clear()
-        event.preventDefault()
-        AxiosRequests.handleSignUp(this.state.email, this.state.password).then(data => {
+        // event.preventDefault()
+        AxiosRequests.handleSignUp(event.email, event.password).then(data => {
             this.myStorage.setItem('token', data.data.jwt)
             this.props.closeModal()
                 // this.setState({token: data.data.jwt})
-                // console.log(data.data.jwt)
+                console.log(data.data.jwt)
             }
         ).catch(e => {console.log(e)})
         // this.setState({token: data.jwt})
@@ -35,7 +34,7 @@ class SignUp extends Component {
 
     render() {
         return(
-            <SignUpForm />
+            <SignUpForm onSubmit={this.handleSubmit}/>
         )
     }
 }
