@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
 import AxiosRequests from '../axios/AxiosRequests'
 import SignUpForm from '../../src/SignUpForm/SignUpForm'
+import { addToken } from '../../src/Redux/Actions'
+import store from "../../src/Redux/store"
+import { connect } from 'react-redux'
 
 class SignUp extends Component {
 
@@ -21,11 +24,21 @@ class SignUp extends Component {
         AxiosRequests.handleSignUp(event.email, event.password).then(data => {
             this.myStorage.setItem('token', data.data.jwt)
             this.props.closeModal()
+
+            // store.dispatch(addToken(data.data.jwt))
+            //             // console.log(store.getState())
+
+            this.props.setToken(data.data.jwt)
+
                 // this.setState({token: data.data.jwt})
-                console.log(data.data.jwt)
+                // console.log(data.data.jwt)
             }
         ).catch(e => {console.log(e)})
         // this.setState({token: data.jwt})
+    }
+
+    handleClose = () => {
+        this.props.closeModal()
     }
 
     // handleLogOut = () => {
@@ -33,11 +46,23 @@ class SignUp extends Component {
     // }
 
     render() {
+        console.log(this.props.getToken)
         return(
-            <SignUpForm onSubmit={this.handleSubmit}/>
+            <SignUpForm onSubmit={this.handleSubmit} onClose={this.handleClose}/>
         )
     }
 }
 
-export default SignUp
 
+function mapStateToProps(state) {
+    const { token } = state
+    return { getToken: token.localToken }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        setToken: (text) => dispatch(addToken(text)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)

@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import { Field, reduxForm } from 'redux-form'
 import '../../src/Modal/Modal.css'
 import validate from '../../src/Redux/Validation'
-import store from "../../src/Redux/store"
 
 const renderItem = ({input, label, name, type, placeholder, className, meta: { touched, error }}) => (
     <div className={className}>
@@ -28,7 +27,7 @@ const SignUpForm = (props) => {
 
                 </div>
 
-                <button type="button" className="close" onClick={props.onClose}>&times;</button>
+                <button type="button" className="close">&times;</button>
 
                 <Field
                     label="Email"

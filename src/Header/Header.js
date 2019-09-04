@@ -6,6 +6,8 @@ import Modal from '../Modal/Modal'
 import SignUp from "../SignUp/SignUp";
 import LogIn from "../LogIn/LogIn";
 import SignUpForm from "../SignUpForm/SignUpForm";
+import {addToken, deleteToken} from "../Redux/Actions";
+import {connect} from "react-redux";
 
 class Header extends Component {
 
@@ -35,7 +37,7 @@ class Header extends Component {
     }
 
     handleLogOut = () => {
-        localStorage.removeItem('token')
+        this.props.deleteToken()
     }
 
     handleSignUp = () => {
@@ -57,6 +59,13 @@ class Header extends Component {
         })
     }
 
+    componentDidMount() {
+        const token = localStorage.getItem('token')
+        if(token){
+            this.props.setToken(token)
+        }
+    }
+
     render() {
         return (
                 <div className="Header">
@@ -72,7 +81,7 @@ class Header extends Component {
                             <NavLink className={'NavLink'} to="/aboutUs">About us</NavLink>
                         </div>
 
-                        {localStorage.getItem('token') ?
+                        {this.props.getToken ?
                             <div className={'listElement'}>
                                 <NavLink className={'NavLink'} onClick={this.handleLogOut}>Log out</NavLink>
                             </div>
@@ -82,7 +91,7 @@ class Header extends Component {
                             </div>
                         }
 
-                        {localStorage.getItem('token') ?
+                        {this.props.getToken ?
                             null
                             :
                             <div className={'listElement'}>
@@ -99,4 +108,16 @@ class Header extends Component {
     }
 }
 
-export default Header;
+function mapStateToProps(state) {
+    const { token } = state
+    return { getToken: token.localToken }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        setToken: (text) => dispatch(addToken(text)),
+        deleteToken: () => dispatch(deleteToken()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

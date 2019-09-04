@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import axios from 'axios';
 import './Modal.css'
 import AxiosRequests from '../axios/AxiosRequests'
+import SignUpForm from "../SignUpForm/SignUpForm";
+import {addToken} from "../Redux/Actions";
+import {connect} from "react-redux";
 
 class LogIn extends Component {
 
@@ -15,11 +18,14 @@ class LogIn extends Component {
 
     handleSubmit = event => {
         // this.myStorage.clear()
-        event.preventDefault()
-        AxiosRequests.handleLogIn(this.state.email, this.state.password).then(data => {
+        // event.preventDefault()
+        AxiosRequests.handleLogIn(event.email, event.password).then(data => {
             this.myStorage.setItem('token', data.data.jwt)
-            console.log(localStorage.getItem('token'))
+            // console.log(localStorage.getItem('token'))
             this.props.closeModal()
+
+            this.props.setToken(data.data.jwt)
+
             // this.setState({token: data.data.jwt})
             // console.log(data.data.jwt)
         })
@@ -39,38 +45,31 @@ class LogIn extends Component {
     //     modal.style.display = "none";
     // }
 
-// <form action="" className={"modal"} style={{'display': 'block'}}>
+
+    handleClose = () => {
+        this.props.closeModal()
+    }
+
     render() {
+        console.log(this.props.getToken)
         return(
-            <form action="" className={"modal"} style={ {'display': 'block'} }>
-                <div className="modal-content">
-
-                    <div className={'closeButton'}>
-
-                    </div>
-
-                    <button className="close">&times;</button>
-
-                    <div className={'Email'}>
-                        <h1>Email</h1>
-                        <input type="text" onChange={(e) => this.setState({email: e.target.value})}/>
-                    </div>
-
-                    <div className={'Password'}>
-                        <h1>Password</h1>
-                        <input type="text" onChange={(e) => this.setState({password: e.target.value})}/>
-                    </div>
-
-                    <div>
-                        <button className={'Submit'} onClick={this.handleSubmit}>Submit</button>
-                    </div>
-                </div>
-            </form>
+            <SignUpForm onSubmit={this.handleSubmit} onClose={this.handleClose}/>
         )
     }
 }
 
-export default LogIn
+function mapStateToProps(state) {
+    const { token } = state
+    return { getToken: token.localToken }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        setToken: (text) => dispatch(addToken(text)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LogIn)
 
 
 // handleLogIn = () => {
@@ -98,3 +97,34 @@ export default LogIn
 //
 //     this.myStorage.removeItem('token');
 // }
+
+
+
+
+
+
+
+// <form action="" className={"modal"} style={ {'display': 'block'} }>
+// <div className="modal-content">
+//
+//     <div className={'closeButton'}>
+//
+//     </div>
+//
+// <button className="close">&times;</button>
+//
+// <div className={'Email'}>
+//     <h1>Email</h1>
+// <input type="text" onChange={(e) => this.setState({email: e.target.value})}/>
+// </div>
+//
+// <div className={'Password'}>
+//     <h1>Password</h1>
+//     <input type="text" onChange={(e) => this.setState({password: e.target.value})}/>
+// </div>
+//
+// <div>
+// <button className={'Submit'} onClick={this.handleSubmit}>Submit</button>
+// </div>
+// </div>
+// </form>
